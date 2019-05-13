@@ -99,6 +99,30 @@
                 </div>
             </div>
         </div>
+	<div id="floater">
+            <img src="assets/images/logo/whatsapp.svg" id="btnShowPopup">
+        </div>
+        <div id="whatsapp" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #2e8c7d">
+                        <h4 class="modal-title" style="text-transform: none !important; font-style: initial">En que
+                            podemos ayudarte?</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <input type="text" class="form-control" id="messageWp">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" id="SendMessage" value="Enviar" class="btn btn-success"
+                            style="background-color: #2e8c7d !important" />
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- Welcome Area End -->
 
@@ -590,5 +614,47 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="assets/js/vendor/jquery.datetimepicker.full.min.js"></script>
     <script src="assets/js/vendor/jquery.nice-select.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        $(window).scroll(function () {
+            var winScrollTop = $(window).scrollTop();
+            var winHeight = $(window).height();
+            var floaterHeight = $('#floater').outerHeight(true);
+            var fromBottom = 20;
+            var top = winScrollTop + winHeight - floaterHeight - fromBottom;
+            $('#floater').css({ 'top': top + 'px' });
+        });
+        $(function () {
+            $("#btnShowPopup").click(function () {
+                $("#whatsapp").modal("show");
+            });
+            $("#btnClosePopup").click(function () {
+                $("#whatsapp").modal("hide");
+            });
+            $("#SendMessage").click(function () {
+                number = 542613034926;
+                url = 'http://api.whatsapp.com/send?phone=' + number + '&text=' + $('#messageWp').val();
+                window.open(url, '_blank');
+                $("#whatsapp").modal("hide");
+            });
+        });
+    </script>
+    <style>
+        #floater {
+            position: absolute;
+            top: 100px;
+            right: 1px;
+            width: 100px;
+            height: 100px;
+            -webkit-transition: all 2s ease-in-out;
+            transition: all 2s ease-in-out;
+            z-index: 1;
+            border-radius: 3px 0 0 3px;
+            padding: 10px;
+            background-color: transparent;
+            color: white;
+            text-align: center;
+            box-sizing: border-box;
+        }
+    </style>
 </body>
 </html>
