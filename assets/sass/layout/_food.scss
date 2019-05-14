@@ -2,7 +2,7 @@
 .food-area {
     background-image: url('../images/food-bg.png');
     background-repeat: no-repeat;
-    background-position: top right;
+    //background-position: top right;
     position: relative;
     @include tablet(){
         background-image: none;
