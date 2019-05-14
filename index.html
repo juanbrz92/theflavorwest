@@ -55,6 +55,7 @@
                                     <li><a href="blog-home.html">Puntos de ventas</a></li>
                                 </ul>
                             </li>
+                            <li><a href="#/" class="btnShowPopup"><i class="fa fa-whatsapp"></i> (0261) 155692410</a></li>
                         </ul>
                     </div>
                 </div>
@@ -99,7 +100,7 @@
             </div>
         </div>
         <div id="floater">
-            <img src="assets/images/logo/whatsapp.svg" id="btnShowPopup">
+            <img src="assets/images/logo/whatsapp.svg" class="btnShowPopup">
         </div>
         <div id="whatsapp" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -563,7 +564,7 @@
     <footer class="footer-area">
         <div class="footer-widget section-padding">
             <div class="container">
-                <div class="row">
+                <div class="row" style="color:white;">
                     <div class="col-md-4">
                         <div class="single-widget single-widget1">
                             <a href="index.html"><img src="assets/images/logo/logo_tfw.png" alt=""></a>
@@ -585,8 +586,8 @@
                                 <div class="into-icon">
                                     <i class="fa fa-phone"></i>
                                 </div>
-                                <div class="info-text">
-                                    <p>(0261) 155692410</p>
+                                <div class="info-text"> 
+                                    <a href="#/" class="btnShowPopup">(0261) 155692410</a>
                                 </div>
                             </div>
                             <div class="d-flex">
@@ -622,7 +623,7 @@
                     <div class="col-lg-5 col-md-6">
                         <div class="social-icons">
                             <ul>
-                                <li class="no-margin">Síguenos en</li>
+                                <li class="no-margin">Seguinos en</li>
                                 <!--<li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -657,7 +658,7 @@
             $('#floater').css({ 'top': top + 'px' });
         });
         $(function () {
-            $("#btnShowPopup").click(function () {
+            $(".btnShowPopup").click(function () {
                 $("#whatsapp").modal("show");
             });
             $("#btnClosePopup").click(function () {
