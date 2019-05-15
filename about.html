@@ -55,8 +55,7 @@
                                     <li><a href="blog-home.html">Puntos de ventas</a></li>
                                 </ul>
                             </li>
-                            <li><a href="https://wa.me/5492617120126?text=I'm%20interested%20in%20your%20car%20for%20sale"
-                                    target="_blank">Enviar whatsapp</a></li>
+                            <li><a href="#/" class="btnShowPopup"><i class="fa fa-whatsapp"></i> (0261) 155692410</a></li>
                         </ul>
                     </div>
                 </div>
@@ -77,7 +76,30 @@
         </div>
     </section>
     <!-- Banner Area End -->
-
+    <div id="floater">
+        <img src="assets/images/logo/whatsapp.svg" class="btnShowPopup">
+    </div>
+    <div id="whatsapp" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #2e8c7d">
+                    <h4 class="modal-title" style="text-transform: none !important; font-style: initial">En que
+                        podemos ayudarte?</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <input type="text" class="form-control" id="messageWp">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" id="SendMessage" value="Enviar" class="btn btn-success"
+                        style="background-color: #2e8c7d !important" />
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Welcome Area Starts -->
     <section class="welcome-area section-padding2">
         <div class="container-fluid">
@@ -180,9 +202,9 @@
                                 <img src="assets/images/customer1.png" alt="">
                             </div>
                             <div class="customer-text">
-                                <h5>Quiroga Luciano</h5>
+                                <h5>Luciano Quiroga</h5>
                                 <span><i>Vapeador causal</i></span>
-                                <p class="pt-3">Liquidos muy recomendados, ricos sabores y excelentes combinaciones,
+                                <p class="pt-3">Líquidos muy recomendados, ricos sabores y excelentes combinaciones,
                                     sobre todo recomiento MEDUSA es genial!</p>
                             </div>
                         </div>
@@ -193,18 +215,18 @@
                             <div class="customer-text">
                                 <h5>Andrés Alonso</h5>
                                 <span><i>Vapeador diario</i></span>
-                                <p class="pt-3">Excelentes liquidos para el vapeo diario, muchas variedades y sabores
+                                <p class="pt-3">Excelentes líquidos para el vapeo diario, muchas variedades y sabores
                                     exquisitos. Si te gustan los tabaquiles recomiento HABANA!</p>
                             </div>
                         </div>
                         <div class="single-slide d-sm-flex">
                             <div class="customer-img mr-4 mb-4 mb-sm-0">
-                                <img src="assets/images/customer1.png" alt="">
+                                <img src="assets/images/customer3.png" alt="">
                             </div>
                             <div class="customer-text">
                                 <h5>Juan Brizuela</h5>
-                                <span><i>vapeador casual</i></span>
-                                <p class="pt-3">Liquidos con muy buen sabor para el paladar, con mucha variedad de
+                                <span><i>Vapeador casual</i></span>
+                                <p class="pt-3">Líquidos con muy buen sabor para el paladar, con mucha variedad de
                                     cremosos y citricos, ACTION sin duda uno de los mejores!.</p>
                             </div>
                         </div>
@@ -242,7 +264,7 @@
                                     <i class="fa fa-phone"></i>
                                 </div>
                                 <div class="info-text">
-                                    <p>(0261) 155692410</p>
+                                    <a href="#/" class="btnShowPopup">(0261) 155692410</a>
                                 </div>
                             </div>
                             <div class="d-flex">
@@ -271,23 +293,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 col-md-6">
-                        <span>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This
-                            template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-                                href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
+                        <span> Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | JLC
+                            Desarrollos <i class="fa fa-code" aria-hidden="true"></i></span>
                     </div>
                     <div class="col-lg-5 col-md-6">
                         <div class="social-icons">
                             <ul>
-                                <li class="no-margin">Síguenos en</li>
+                                <li class="no-margin">Seguinos en</li>
                                 <!--<li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                 <li><a href="#"><i class="fa fa-pinterest"></i></a></li>-->
-                                <li><a href="https://www.instagram.com/flavorwest_e_liquid/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://www.instagram.com/flavorwest_e_liquid/" target="_blank"><i
+                                            class="fa fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -306,6 +325,48 @@
     <script src="assets/js/vendor/jquery.datetimepicker.full.min.js"></script>
     <script src="assets/js/vendor/jquery.nice-select.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        $(window).scroll(function () {
+            var winScrollTop = $(window).scrollTop();
+            var winHeight = $(window).height();
+            var floaterHeight = $('#floater').outerHeight(true);
+            var fromBottom = 20;
+            var top = winScrollTop + winHeight - floaterHeight - fromBottom;
+            $('#floater').css({ 'top': top + 'px' });
+        });
+        $(function () {
+            $(".btnShowPopup").click(function () {
+                $("#whatsapp").modal("show");
+            });
+            $("#btnClosePopup").click(function () {
+                $("#whatsapp").modal("hide");
+            });
+            $("#SendMessage").click(function () {
+                number = 542615692410;
+                url = 'http://api.whatsapp.com/send?phone=' + number + '&text=' + $('#messageWp').val();
+                window.open(url, '_blank');
+                $("#whatsapp").modal("hide");
+            });
+        });
+    </script>
+    <style>
+        #floater {
+            position: absolute;
+            top: 100px;
+            right: 1px;
+            width: 100px;
+            height: 100px;
+            -webkit-transition: all 2s ease-in-out;
+            transition: all 2s ease-in-out;
+            z-index: 1;
+            border-radius: 3px 0 0 3px;
+            padding: 10px;
+            background-color: transparent;
+            color: white;
+            text-align: center;
+            box-sizing: border-box;
+        }
+    </style>
 </body>
 
 </html>

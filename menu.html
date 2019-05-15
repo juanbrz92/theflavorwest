@@ -60,8 +60,7 @@
                                     <li><a href="blog-home.html">Puntos de ventas</a></li>
                                 </ul>
                             </li>
-                            <li><a href="https://wa.me/5492617120126?text=I'm%20interested%20in%20your%20car%20for%20sale"
-                                    target="_blank">Enviar whatsapp</a></li>
+                            <li><a href="#/" class="btnShowPopup"><i class="fa fa-whatsapp"></i> (0261) 155692410</a></li>
                         </ul>
                     </div>
                 </div>
@@ -82,7 +81,30 @@
         </div>
     </section>
     <!-- Banner Area End -->
-
+    <div id="floater">
+        <img src="assets/images/logo/whatsapp.svg" class="btnShowPopup">
+    </div>
+    <div id="whatsapp" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #2e8c7d">
+                    <h4 class="modal-title" style="text-transform: none !important; font-style: initial">En que
+                        podemos ayudarte?</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <input type="text" class="form-control" id="messageWp">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" id="SendMessage" value="Enviar" class="btn btn-success"
+                        style="background-color: #2e8c7d !important" />
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Food Area starts -->
 
     <section class="food-area section-padding">
@@ -332,7 +354,7 @@
     <footer class="footer-area">
         <div class="footer-widget section-padding">
             <div class="container">
-                <div class="row">
+                <div class="row" style="color:white;">
                     <div class="col-md-4">
                         <div class="single-widget single-widget1">
                             <a href="index.html"><img src="assets/images/logo/logo_tfw.png" alt=""></a>
@@ -355,7 +377,7 @@
                                     <i class="fa fa-phone"></i>
                                 </div>
                                 <div class="info-text">
-                                    <p>(0261) 155692410</p>
+                                    <a href="#/" class="btnShowPopup"><i class="fa fa-whatsapp"></i> (0261) 155692410</a>
                                 </div>
                             </div>
                             <div class="d-flex">
@@ -384,13 +406,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 col-md-6">
-                        <span>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This
-                            template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-                                href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
+                        <span> Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | JLC
+                            Desarrollos <i class="fa fa-code" aria-hidden="true"></i></span>
                     </div>
                     <div class="col-lg-5 col-md-6">
                         <div class="social-icons">
@@ -420,6 +438,48 @@
     <script src="assets/js/vendor/jquery.datetimepicker.full.min.js"></script>
     <script src="assets/js/vendor/jquery.nice-select.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        $(window).scroll(function () {
+            var winScrollTop = $(window).scrollTop();
+            var winHeight = $(window).height();
+            var floaterHeight = $('#floater').outerHeight(true);
+            var fromBottom = 20;
+            var top = winScrollTop + winHeight - floaterHeight - fromBottom;
+            $('#floater').css({ 'top': top + 'px' });
+        });
+        $(function () {
+            $(".btnShowPopup").click(function () {
+                $("#whatsapp").modal("show");
+            });
+            $("#btnClosePopup").click(function () {
+                $("#whatsapp").modal("hide");
+            });
+            $("#SendMessage").click(function () {
+                number = 542615692410;
+                url = 'http://api.whatsapp.com/send?phone=' + number + '&text=' + $('#messageWp').val();
+                window.open(url, '_blank');
+                $("#whatsapp").modal("hide");
+            });
+        });
+    </script>
+    <style>
+        #floater {
+            position: absolute;
+            top: 100px;
+            right: 1px;
+            width: 100px;
+            height: 100px;
+            -webkit-transition: all 2s ease-in-out;
+            transition: all 2s ease-in-out;
+            z-index: 1;
+            border-radius: 3px 0 0 3px;
+            padding: 10px;
+            background-color: transparent;
+            color: white;
+            text-align: center;
+            box-sizing: border-box;
+        }
+    </style>
 </body>
 
 </html>
