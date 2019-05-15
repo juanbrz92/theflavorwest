@@ -55,7 +55,8 @@
                                     <li><a href="blog-home.html">Puntos de ventas</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#/" class="btnShowPopup"><i class="fa fa-whatsapp"></i> (0261) 155692410</a></li>
+                            <li><a href="#/" class="btnShowPopup"><i class="fa fa-whatsapp"></i> (0261) 155692410</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -268,8 +269,47 @@
                 }
             });
         });
-
+        $(window).scroll(function () {
+            var winScrollTop = $(window).scrollTop();
+            var winHeight = $(window).height();
+            var floaterHeight = $('#floater').outerHeight(true);
+            var fromBottom = 20;
+            var top = winScrollTop + winHeight - floaterHeight - fromBottom;
+            $('#floater').css({ 'top': top + 'px' });
+        });
+        $(function () {
+            $(".btnShowPopup").click(function () {
+                $("#whatsapp").modal("show");
+            });
+            $("#btnClosePopup").click(function () {
+                $("#whatsapp").modal("hide");
+            });
+            $("#SendMessage").click(function () {
+                number = 542615692410;
+                url = 'http://api.whatsapp.com/send?phone=' + number + '&text=' + $('#messageWp').val();
+                window.open(url, '_blank');
+                $("#whatsapp").modal("hide");
+            });
+        });
     </script>
+    <style>
+        #floater {
+            position: absolute;
+            top: 100px;
+            right: 1px;
+            width: 100px;
+            height: 100px;
+            -webkit-transition: all 2s ease-in-out;
+            transition: all 2s ease-in-out;
+            z-index: 1;
+            border-radius: 3px 0 0 3px;
+            padding: 10px;
+            background-color: transparent;
+            color: white;
+            text-align: center;
+            box-sizing: border-box;
+        }
+    </style>
 </body>
 
 </html>
